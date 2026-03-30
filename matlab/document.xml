@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[classdef calculatorapp2 < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure       matlab.ui.Figure
+        EditField      matlab.ui.control.EditField
+        Button         matlab.ui.control.Button
+        Button_2       matlab.ui.control.Button
+        Button_3       matlab.ui.control.Button
+        Button_4       matlab.ui.control.Button
+        Button_5       matlab.ui.control.Button
+        Button_6       matlab.ui.control.Button
+        Button_7       matlab.ui.control.Button
+        logButton      matlab.ui.control.Button
+        Button_10      matlab.ui.control.Button
+        cosButton      matlab.ui.control.Button
+        sinButton      matlab.ui.control.Button
+        tanButton      matlab.ui.control.Button
+        Button_14      matlab.ui.control.Button
+        Button_15      matlab.ui.control.Button
+        Button_16      matlab.ui.control.Button
+        Button_18      matlab.ui.control.Button
+        Button_19      matlab.ui.control.Button
+        Button_21      matlab.ui.control.Button
+        Button_20      matlab.ui.control.Button
+        Button_24      matlab.ui.control.Button
+        Button_23      matlab.ui.control.Button
+        Button_22      matlab.ui.control.Button
+        Button_17      matlab.ui.control.Button
+        Button_25      matlab.ui.control.Button
+        PLOTSINButton  matlab.ui.control.Button
+        PLOTCOSButton  matlab.ui.control.Button
+        PLOTTANButton  matlab.ui.control.Button
+        ClearButton    matlab.ui.control.Button
+        UIAxes         matlab.ui.control.UIAxes
+        sqrtButton     matlab.ui.control.Button
+    end
+
+    methods (Access = private)
+
+        % Button pushed function: Button_16
+        function Button_16Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('7');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_17
+        function Button_17Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('8');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_18
+        function Button_18Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('9');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_19
+        function Button_19Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('4');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_20
+        function Button_20Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('5');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_21
+        function Button_21Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('6');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_24
+        function Button_24Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('1');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_23
+        function Button_23Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('2');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_22
+        function Button_22Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('3');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_25
+        function Button_25Pushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('0');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button
+        function ButtonPushed(app, event)
+            Existingstring =app.EditField.Value; 
+            newstring =('.');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring; 
+        end
+
+        % Button pushed function: Button_2
+        function Button_2Pushed(app, event)
+            Existingstring =app.EditField.Value;
+            answer =eval(Existingstring);   
+            app.EditField.Value = num2str(answer);
+
+        end
+
+        % Button pushed function: Button_3
+        function Button_3Pushed(app, event)
+       Existingstring =app.EditField.Value;
+            newstring =('+');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring;       
+        end
+
+        % Button pushed function: Button_4
+        function Button_4Pushed(app, event)
+            Existingstring =app.EditField.Value;
+            newstring =('-');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring;  
+        end
+
+        % Button pushed function: Button_7
+        function Button_7Pushed(app, event)
+            Existingstring =app.EditField.Value;
+            newstring =('^');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring;  
+        end
+
+        % Button pushed function: Button_5
+        function Button_5Pushed(app, event)
+      if ~isempty(current) && (isstrprop(current(end),'digit') || current(end) == ')')
+        current = current + "*";  
+      end
+    app.EditField.Value = current + "(";  
+
+        end
+
+        % Button pushed function: Button_6
+        function Button_6Pushed(app, event)
+            Existingstring =app.EditField.Value;
+            newstring =('*');
+            textstring = strcat(Existingstring,newstring);
+            app.EditField.Value = textstring;  
+        end
+
+        % Button pushed function: logButton
+        function logButtonPushed(app, event)
+   x = str2double(app.EditField.Value);  
+
+    if isnan(x) || x <= 0
+        app.EditField.Value = "Error";    
+    else
+        app.EditField.Value = string(log(x));   
+    end
+               
+        end
+
+        % Button pushed function: Button_10
+        function Button_10Pushed(app, event)
+   Existingstring =app.EditField.Value;
+   newstring =('^');
+   textstring = strcat(Existingstring,newstring);
+   app.EditField.Value = textstring;          
+        end
+
+        % Button pushed function: cosButton
+        function cosButtonPushed(app, event)
+   value = str2double(app.EditField.Value);
+if isnan(value)
+    uialert(app.UIFigure,'Please enter a valid number','Error');
+else
+    result = cosd(value);                   
+    app.EditField.Value = num2str(result);
+end         
+        end
+
+        % Button pushed function: tanButton
+        function tanButtonPushed(app, event)
+            value = str2double(app.EditField.Value);
+if isnan(value)
+    uialert(app.UIFigure,'Please enter a valid number','Error');
+else
+    result = tand(value);                    
+    app.EditField.Value = num2str(result);
+end
+
+        end
+
+        % Button pushed function: sinButton
+        function sinButtonPushed(app, event)
+   value = str2double(app.EditField.Value); 
+       if isnan(value)
+           uialert(app.UIFigure,'Please enter a valid number','Error');
+       else
+           result = sind(value);                 
+            app.EditField.Value = num2str(result); 
+       end            
+        end
+
+        % Button pushed function: Button_15
+        function Button_15Pushed(app, event)
+  current = app.EditField.Value;       
+    
+    if isempty(current)
+        return;  
+    end
+    openCount = count(current, '(');
+    closeCount = count(current, ')');
+    if openCount > closeCount
+        app.EditField.Value = current + ")";  
+    else
+    end
+          
+        end
+
+        % Button pushed function: Button_14
+        function Button_14Pushed(app, event)
+     current = app.EditField.Value;
+
+    if isempty(current) || current(end)=='+' || current(end)=='-' || current(end)=='*' || current(end)=='/'
+        app.EditField.Value = current + "pi";
+    else
+        app.EditField.Value = current + "*pi";   % auto multiply
+    end
+       
+        end
+
+        % Button pushed function: ClearButton
+        function ClearButtonPushed(app, event)
+            app.EditField.Value =(' ');             
+        end
+
+        % Button pushed function: PLOTSINButton
+        function PLOTSINButtonPushed(app, event)
+   x = linspace(0, 2*pi, 500);   
+    y = sin(x);                  
+
+    plot(app.UIAxes, x, y);      
+    grid(app.UIAxes, 'on');
+
+    xlabel(app.UIAxes, 'x');
+    ylabel(app.UIAxes, 'sin(x)');
+    title(app.UIAxes, 'Sin Function')          
+        end
+
+        % Button pushed function: PLOTCOSButton
+        function PLOTCOSButtonPushed(app, event)
+     x = linspace(0, 2*pi, 500);   
+    y = cos(x);                  
+
+    plot(app.UIAxes, x, y);      
+    grid(app.UIAxes, 'on');
+
+    xlabel(app.UIAxes, 'x');
+    ylabel(app.UIAxes, 'cos(x)');
+    title(app.UIAxes, 'COS Function');            
+              
+        end
+
+        % Button pushed function: PLOTTANButton
+        function PLOTTANButtonPushed(app, event)
+ fplot(app.UIAxes, @(x) tan(x), [0 2*pi]);
+ylim(app.UIAxes, [-10 10]);
+grid(app.UIAxes, 'on');       
+        end
+
+        % Button pushed function: sqrtButton
+        function sqrtButtonPushed(app, event)
+       value = str2double(app.EditField.Value);  
+if isnan(value)
+    uialert(app.UIFigure,'Please enter a valid number','Error');
+else
+    result = sqrt(value);               
+    app.EditField.Value = num2str(result);
+end
+     
+        end
+    end
+
+    % App initialization and construction
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure
+            app.UIFigure = uifigure;
+            app.UIFigure.Color = [0.149 0.149 0.149];
+            app.UIFigure.Position = [100 100 846 394];
+            app.UIFigure.Name = 'UI Figure';
+
+            % Create EditField
+            app.EditField = uieditfield(app.UIFigure, 'text');
+            app.EditField.FontSize = 24;
+            app.EditField.BackgroundColor = [0.8 0.8 0.8];
+            app.EditField.Position = [17 289 488 61];
+
+            % Create Button
+            app.Button = uibutton(app.UIFigure, 'push');
+            app.Button.ButtonPushedFcn = createCallbackFcn(app, @ButtonPushed, true);
+            app.Button.BackgroundColor = [0 0 0];
+            app.Button.FontSize = 22;
+            app.Button.FontColor = [1 1 1];
+            app.Button.Position = [34 62 90 32];
+            app.Button.Text = '.';
+
+            % Create Button_2
+            app.Button_2 = uibutton(app.UIFigure, 'push');
+            app.Button_2.ButtonPushedFcn = createCallbackFcn(app, @Button_2Pushed, true);
+            app.Button_2.BackgroundColor = [0 0 0];
+            app.Button_2.FontSize = 16;
+            app.Button_2.FontColor = [1 1 1];
+            app.Button_2.Position = [232 62 84 33];
+            app.Button_2.Text = '=';
+
+            % Create Button_3
+            app.Button_3 = uibutton(app.UIFigure, 'push');
+            app.Button_3.ButtonPushedFcn = createCallbackFcn(app, @Button_3Pushed, true);
+            app.Button_3.BackgroundColor = [0 0 0];
+            app.Button_3.FontSize = 16;
+            app.Button_3.FontColor = [1 1 1];
+            app.Button_3.Position = [334 234 44 33];
+            app.Button_3.Text = '+';
+
+            % Create Button_4
+            app.Button_4 = uibutton(app.UIFigure, 'push');
+            app.Button_4.ButtonPushedFcn = createCallbackFcn(app, @Button_4Pushed, true);
+            app.Button_4.BackgroundColor = [0 0 0];
+            app.Button_4.FontSize = 16;
+            app.Button_4.FontColor = [1 1 1];
+            app.Button_4.Position = [395 234 44 33];
+            app.Button_4.Text = '-';
+
+            % Create Button_5
+            app.Button_5 = uibutton(app.UIFigure, 'push');
+            app.Button_5.ButtonPushedFcn = createCallbackFcn(app, @Button_5Pushed, true);
+            app.Button_5.BackgroundColor = [0 0 0];
+            app.Button_5.FontSize = 16;
+            app.Button_5.FontColor = [1 1 1];
+            app.Button_5.Position = [334 171 44 33];
+            app.Button_5.Text = '(';
+
+            % Create Button_6
+            app.Button_6 = uibutton(app.UIFigure, 'push');
+            app.Button_6.ButtonPushedFcn = createCallbackFcn(app, @Button_6Pushed, true);
+            app.Button_6.BackgroundColor = [0 0 0];
+            app.Button_6.FontSize = 24;
+            app.Button_6.FontColor = [1 1 1];
+            app.Button_6.Position = [395 168 44 38];
+            app.Button_6.Text = '*';
+
+            % Create Button_7
+            app.Button_7 = uibutton(app.UIFigure, 'push');
+            app.Button_7.ButtonPushedFcn = createCallbackFcn(app, @Button_7Pushed, true);
+            app.Button_7.BackgroundColor = [0 0 0];
+            app.Button_7.FontSize = 16;
+            app.Button_7.FontColor = [1 1 1];
+            app.Button_7.Position = [461 234 44 33];
+            app.Button_7.Text = '^';
+
+            % Create logButton
+            app.logButton = uibutton(app.UIFigure, 'push');
+            app.logButton.ButtonPushedFcn = createCallbackFcn(app, @logButtonPushed, true);
+            app.logButton.BackgroundColor = [0 0 0];
+            app.logButton.FontSize = 16;
+            app.logButton.FontColor = [1 1 1];
+            app.logButton.Position = [461 174 44 33];
+            app.logButton.Text = 'log';
+
+            % Create Button_10
+            app.Button_10 = uibutton(app.UIFigure, 'push');
+            app.Button_10.ButtonPushedFcn = createCallbackFcn(app, @Button_10Pushed, true);
+            app.Button_10.BackgroundColor = [0 0 0];
+            app.Button_10.FontSize = 16;
+            app.Button_10.FontColor = [1 1 1];
+            app.Button_10.Position = [397 109 44 33];
+            app.Button_10.Text = '/';
+
+            % Create cosButton
+            app.cosButton = uibutton(app.UIFigure, 'push');
+            app.cosButton.ButtonPushedFcn = createCallbackFcn(app, @cosButtonPushed, true);
+            app.cosButton.BackgroundColor = [0 0 0];
+            app.cosButton.FontSize = 16;
+            app.cosButton.FontColor = [1 1 1];
+            app.cosButton.Position = [461 112 44 33];
+            app.cosButton.Text = 'cos';
+
+            % Create sinButton
+            app.sinButton = uibutton(app.UIFigure, 'push');
+            app.sinButton.ButtonPushedFcn = createCallbackFcn(app, @sinButtonPushed, true);
+            app.sinButton.BackgroundColor = [0 0 0];
+            app.sinButton.FontSize = 16;
+            app.sinButton.FontColor = [1 1 1];
+            app.sinButton.Position = [395 62 44 33];
+            app.sinButton.Text = 'sin';
+
+            % Create tanButton
+            app.tanButton = uibutton(app.UIFigure, 'push');
+            app.tanButton.ButtonPushedFcn = createCallbackFcn(app, @tanButtonPushed, true);
+            app.tanButton.BackgroundColor = [0 0 0];
+            app.tanButton.FontSize = 16;
+            app.tanButton.FontColor = [1 1 1];
+            app.tanButton.Position = [334 62 44 33];
+            app.tanButton.Text = 'tan';
+
+            % Create Button_14
+            app.Button_14 = uibutton(app.UIFigure, 'push');
+            app.Button_14.ButtonPushedFcn = createCallbackFcn(app, @Button_14Pushed, true);
+            app.Button_14.BackgroundColor = [0 0 0];
+            app.Button_14.FontSize = 16;
+            app.Button_14.FontColor = [1 1 1];
+            app.Button_14.Position = [334 15 44 33];
+            app.Button_14.Text = 'π';
+
+            % Create Button_15
+            app.Button_15 = uibutton(app.UIFigure, 'push');
+            app.Button_15.ButtonPushedFcn = createCallbackFcn(app, @Button_15Pushed, true);
+            app.Button_15.BackgroundColor = [0 0 0];
+            app.Button_15.FontSize = 16;
+            app.Button_15.FontColor = [1 1 1];
+            app.Button_15.Position = [461 62 44 33];
+            app.Button_15.Text = ')';
+
+            % Create Button_16
+            app.Button_16 = uibutton(app.UIFigure, 'push');
+            app.Button_16.ButtonPushedFcn = createCallbackFcn(app, @Button_16Pushed, true);
+            app.Button_16.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_16.FontSize = 16;
+            app.Button_16.Position = [34 234 76 33];
+            app.Button_16.Text = '7';
+
+            % Create Button_18
+            app.Button_18 = uibutton(app.UIFigure, 'push');
+            app.Button_18.ButtonPushedFcn = createCallbackFcn(app, @Button_18Pushed, true);
+            app.Button_18.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_18.FontSize = 16;
+            app.Button_18.Position = [232 239 76 28];
+            app.Button_18.Text = '9';
+
+            % Create Button_19
+            app.Button_19 = uibutton(app.UIFigure, 'push');
+            app.Button_19.ButtonPushedFcn = createCallbackFcn(app, @Button_19Pushed, true);
+            app.Button_19.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_19.FontSize = 16;
+            app.Button_19.Position = [37 171 76 33];
+            app.Button_19.Text = '4';
+
+            % Create Button_21
+            app.Button_21 = uibutton(app.UIFigure, 'push');
+            app.Button_21.ButtonPushedFcn = createCallbackFcn(app, @Button_21Pushed, true);
+            app.Button_21.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_21.FontSize = 16;
+            app.Button_21.Position = [232 171 76 33];
+            app.Button_21.Text = '6';
+
+            % Create Button_20
+            app.Button_20 = uibutton(app.UIFigure, 'push');
+            app.Button_20.ButtonPushedFcn = createCallbackFcn(app, @Button_20Pushed, true);
+            app.Button_20.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_20.FontSize = 16;
+            app.Button_20.Position = [137 171 76 33];
+            app.Button_20.Text = '5';
+
+            % Create Button_24
+            app.Button_24 = uibutton(app.UIFigure, 'push');
+            app.Button_24.ButtonPushedFcn = createCallbackFcn(app, @Button_24Pushed, true);
+            app.Button_24.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_24.FontSize = 16;
+            app.Button_24.Position = [37 114 76 31];
+            app.Button_24.Text = '1';
+
+            % Create Button_23
+            app.Button_23 = uibutton(app.UIFigure, 'push');
+            app.Button_23.ButtonPushedFcn = createCallbackFcn(app, @Button_23Pushed, true);
+            app.Button_23.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_23.FontSize = 16;
+            app.Button_23.Position = [137 114 76 31];
+            app.Button_23.Text = '2';
+
+            % Create Button_22
+            app.Button_22 = uibutton(app.UIFigure, 'push');
+            app.Button_22.ButtonPushedFcn = createCallbackFcn(app, @Button_22Pushed, true);
+            app.Button_22.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_22.FontSize = 16;
+            app.Button_22.Position = [232 114 76 31];
+            app.Button_22.Text = '3';
+
+            % Create Button_17
+            app.Button_17 = uibutton(app.UIFigure, 'push');
+            app.Button_17.ButtonPushedFcn = createCallbackFcn(app, @Button_17Pushed, true);
+            app.Button_17.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_17.FontSize = 16;
+            app.Button_17.Position = [137 234 76 33];
+            app.Button_17.Text = '8';
+
+            % Create Button_25
+            app.Button_25 = uibutton(app.UIFigure, 'push');
+            app.Button_25.ButtonPushedFcn = createCallbackFcn(app, @Button_25Pushed, true);
+            app.Button_25.BackgroundColor = [0.8 0.8 0.8];
+            app.Button_25.FontSize = 16;
+            app.Button_25.Position = [137 62 76 32];
+            app.Button_25.Text = '0';
+
+            % Create PLOTSINButton
+            app.PLOTSINButton = uibutton(app.UIFigure, 'push');
+            app.PLOTSINButton.ButtonPushedFcn = createCallbackFcn(app, @PLOTSINButtonPushed, true);
+            app.PLOTSINButton.BackgroundColor = [0.8 0.8 0.8];
+            app.PLOTSINButton.Position = [37 17 76 28];
+            app.PLOTSINButton.Text = 'PLOTSIN';
+
+            % Create PLOTCOSButton
+            app.PLOTCOSButton = uibutton(app.UIFigure, 'push');
+            app.PLOTCOSButton.ButtonPushedFcn = createCallbackFcn(app, @PLOTCOSButtonPushed, true);
+            app.PLOTCOSButton.BackgroundColor = [0.8 0.8 0.8];
+            app.PLOTCOSButton.Position = [137 17 76 28];
+            app.PLOTCOSButton.Text = 'PLOTCOS';
+
+            % Create PLOTTANButton
+            app.PLOTTANButton = uibutton(app.UIFigure, 'push');
+            app.PLOTTANButton.ButtonPushedFcn = createCallbackFcn(app, @PLOTTANButtonPushed, true);
+            app.PLOTTANButton.BackgroundColor = [0.8 0.8 0.8];
+            app.PLOTTANButton.Position = [240 17 76 28];
+            app.PLOTTANButton.Text = 'PLOTTAN';
+
+            % Create ClearButton
+            app.ClearButton = uibutton(app.UIFigure, 'push');
+            app.ClearButton.ButtonPushedFcn = createCallbackFcn(app, @ClearButtonPushed, true);
+            app.ClearButton.BackgroundColor = [0 0.451 0.7412];
+            app.ClearButton.FontSize = 16;
+            app.ClearButton.Position = [397 15 108 33];
+            app.ClearButton.Text = 'Clear';
+
+            % Create UIAxes
+            app.UIAxes = uiaxes(app.UIFigure);
+            title(app.UIAxes, 'Title')
+            xlabel(app.UIAxes, 'X')
+            ylabel(app.UIAxes, 'Y')
+            app.UIAxes.PlotBoxAspectRatio = [1 0.954385964912281 0.954385964912281];
+            app.UIAxes.Position = [513 22 334 328];
+
+            % Create sqrtButton
+            app.sqrtButton = uibutton(app.UIFigure, 'push');
+            app.sqrtButton.ButtonPushedFcn = createCallbackFcn(app, @sqrtButtonPushed, true);
+            app.sqrtButton.BackgroundColor = [0 0 0];
+            app.sqrtButton.FontSize = 14;
+            app.sqrtButton.FontColor = [1 1 1];
+            app.sqrtButton.Position = [334 112 44 33];
+            app.sqrtButton.Text = 'sqrt';
+        end
+    end
+
+    methods (Access = public)
+
+        % Construct app
+        function app = calculatorapp2
+
+            % Create and configure components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end]]></w:t></w:r></w:p></w:body></w:document>
